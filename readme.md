@@ -1,15 +1,15 @@
-## AWS Greengrass Stream Manager SDK for JS
+## AWS Greengrass Stream Manager SDK for JavaScript
 
-The **AWS Greengrass Stream Manager SDK for JS** enables javascript developers to manage data streams using [Stream
-Manager](https://docs.aws.amazon.com/greengrass/latest/developerguide/stream-manager.html) on AWS IoT Greengrass core.
+The **AWS Greengrass Stream Manager SDK for JavaScript** enables javascript developers to manage data streams using [Stream
+Manager](https://docs.aws.amazon.com/greengrass/v2/developerguide/manage-data-streams.html) on AWS IoT Greengrass core.
 
 ## Overview
 
-This document provides instructions for preparing your JS code to manage Streams in Stream Manager using the JS SDK.
+This document provides instructions for preparing your JavaScript code to manage Streams in Stream Manager using the JavaScript SDK.
 
 ## Using Stream Manager Client to work with Streams
 
-Follow the guide [here](https://docs.aws.amazon.com/greengrass/latest/developerguide/work-with-streams.html) to work
+Follow the guide [here](https://docs.aws.amazon.com/greengrass/v2/developerguide/work-with-streams.html) to work
 with Streams using the Stream Manager Client from the Stream Manager SDK.
 
 ## Compatibility
