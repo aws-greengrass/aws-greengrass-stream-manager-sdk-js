@@ -2,7 +2,8 @@
 
 /* eslint-disable no-restricted-syntax */
 /*
- * Copyright (c) 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 const cbor = require('cbor');
@@ -154,7 +155,7 @@ class StreamManagerClient {
                             .withSdkVersion(SDK_VERSION)
                             .withAuthToken(this.#authToken)
                             .withOtherSupportedProtocolVersions(OLD_SUPPORTED_PROTOCOL_VERSIONS)
-                            .withRequestId(utilInternal.uuidv4());
+                            .withRequestId(utilInternal.generateRandomString());
 
                         // Write the connect version
                         newSock.write(utilInternal.intToBuffer(CONNECT_VERSION, 1));
@@ -357,7 +358,7 @@ class StreamManagerClient {
 
         if (data.requestId === null) {
             // eslint-disable-next-line no-param-reassign
-            data.requestId = utilInternal.uuidv4();
+            data.requestId = utilInternal.generateRandomString();
         }
 
         const validation = utilInternal.isInvalid(data);

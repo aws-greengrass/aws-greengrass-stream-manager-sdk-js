@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 /*
- * Copyright (c) 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 const smData = require('./data');
@@ -45,19 +46,14 @@ const encodeFrame = (frame) => {
     return { header: buf, payload: frame.payload };
 };
 
-/**
- * From https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
- * @ignore
- * @returns {string}
- */
-const uuidv4 = () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-    // eslint-disable-next-line no-bitwise
-    const r = Math.random() * 16 | 0;
-    const
-        // eslint-disable-next-line no-bitwise,no-mixed-operators
-        v = c === 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-});
+const generateRandomString = (length) => {
+    let text = ' ';
+    const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < length; i += 1) {
+        text += charset.charAt(Math.floor(Math.random() * charset.length));
+    }
+    return text;
+};
 
 const isInvalid = (o) => {
     if (o === null || typeof o === 'undefined') {
@@ -199,7 +195,7 @@ module.exports = {
     intToBuffer,
     intFromBuffer,
     encodeFrame,
-    uuidv4,
+    generateRandomString,
     isInvalid,
     throwOnErrorResponse,
     serializeToJsonWithEmptyArrayAsNull,
